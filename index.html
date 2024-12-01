@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>diamond protection</title>
+    <title>Password Protected Page</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.png" type="image/png">
 </head>
 <body>
     <div class="container">
         <img src="rs.png" alt="Logo" class="logo">
-        <form action="protected_page.html" method="post">
-            <input type="password" name="password" placeholder="enter password:" required>
+        <form onsubmit="return checkPassword(event)">
+            <input type="password" id="password" name="password" placeholder="enter password:" required>
+            
         </form>
 
         <!-- Music Player -->
@@ -38,6 +40,19 @@
             snowflake.style.fontSize = Math.random() * 10 + 5 + 'px'; // Random size
             snowflake.textContent = '❄'; // Snowflake symbol
             body.appendChild(snowflake);
+        }
+    </script>
+
+    <!-- Password Check Script -->
+    <script>
+        function checkPassword(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+            const passwordInput = document.getElementById('password').value;
+            if (passwordInput === 'ripsquad') {
+                window.location.href = 'main_page.html'; // Redirect to the main page if password is correct
+            } else {
+                alert('Incorrect password. Please try again.');
+            }
         }
     </script>
 
