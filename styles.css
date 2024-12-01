@@ -1,0 +1,129 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('image.jpeg') no-repeat center center fixed; /* Original background image */
+    background-size: cover; /* Ensure the image covers the entire screen */
+    font-family: 'Consolas', monospace;
+    color: #0000;
+    overflow: hidden; /* Prevent scrollbars due to animation */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Spacing between elements */
+    z-index: 2; /* Ensure container is above snowfall */
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+    filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.8)); /* Drop shadow around the logo */
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+input[type="password"] {
+    width: 300px; /* Make input larger for better visibility */
+    padding: 12px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-family: 'Consolas', monospace;
+    text-align: center;
+    border-radius: 5px; /* Rounded corners */
+    background: rgba(255, 255, 255, 0.9); /* Opaque white background */
+    color: #000; /* Black text for contrast */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Subtle shadow for better visibility */
+}
+
+input[type="password"]::placeholder {
+    color: rgba(0, 0, 0, 0.5); /* Placeholder color */
+}
+
+input[type="password"]:focus {
+    background: rgba(255, 255, 255, 1); /* Bright white on focus */
+    outline: none;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8); /* Glow effect */
+}
+
+.snowflake {
+    position: fixed;
+    top: -10%; /* Start slightly above the viewport */
+    color: white;
+    font-size: 12px; /* Adjust size of snowflakes */
+    pointer-events: none;
+    z-index: 1; /* Behind the content */
+    animation: fall linear infinite; /* Ensure animation is always running */
+    opacity: 0.8;
+}
+
+/* Snowflake animation */
+@keyframes fall {
+    0% {
+        transform: translateY(-10vh) translateX(0); /* Start above the screen */
+    }
+    100% {
+        transform: translateY(110vh) translateX(50px); /* Snow moves downward and to the right */
+    }
+}
+
+.music-player {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Spacing between controls */
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.control-button {
+    background: none;
+    border: none;
+    font-size: 24px; /* Adjust size of the play/pause button */
+    color: white; /* Set button color */
+    cursor: pointer;
+    outline: none;
+}
+
+.control-button:hover {
+    color: rgba(255, 255, 255, 0.7); /* Subtle hover effect */
+}
+
+.volume-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 150px; /* Adjust width of volume slider */
+    background: white; /* Slider track color */
+    height: 4px; /* Height of the track */
+    border-radius: 5px; /* Rounded track corners */
+    outline: none;
+    cursor: pointer;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px; /* Size of the thumb */
+    height: 10px;
+    background: white; /* Thumb color */
+    border-radius: 50%; /* Circular thumb */
+    cursor: pointer;
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+}
